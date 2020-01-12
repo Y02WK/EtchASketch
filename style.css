@@ -1,0 +1,26 @@
+.squaregrid {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 0.05px solid black;
+    margin:0;
+}
+
+html, body {
+    line-height: 0; /* removes white space between each row of grids*/
+    height: 94vh;
+    width: 94vh;
+}
+
+#container {
+    display: block;
+    overflow: hidden;
+}
+
+.hoverChange {
+    background-color: black;
+}
+
+button {
+    display: block;
+    margin-bottom: 5px;
+}
