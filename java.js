@@ -24,9 +24,15 @@ function createGrid() {         //Creates a grid with multiple calls of createSq
 }
 
 function colorChange() {        //Initiates color change through class addition on hover
-    const selectSquare = document.querySelectorAll(".squaregrid")
+    const selectSquare = document.querySelectorAll(".squaregrid");
     selectSquare.forEach(square => square.addEventListener("mouseover", event => {
         square.classList.add("hoverChange");
+        let squareOpacity = Number(square.style.opacity);
+        if (square.style.opacity < 0.1) {
+            square.style.opacity = 0.1;
+        } else if (square.style.opacity >= 0.1) {
+            square.style.opacity = squareOpacity + 0.1;
+        }
 }))
 }
 
