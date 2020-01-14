@@ -6,21 +6,26 @@
 }
 
 html, body {
-    line-height: 0; /* removes white space between each row of grids*/
+    line-height: 0; 
     height: 94vh;
     width: 94vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #container {
     display: block;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.05px solid black;
 }
 
-.hoverChange {
-    background-color: black;
+.hover-change {
+    background-color: rgba(0, 0, 0, 1);
 }
 
 button {
-    display: block;
+    display: inline-block;
     margin-bottom: 5px;
 }

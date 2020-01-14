@@ -6,7 +6,7 @@ gridWidth = 100/gridSize;
 createGrid();
 colorChange();
 
-function createSquare() {       //Creates a single square
+function createSquare() {      
     const mainBody = document.querySelector("#container");
     const gridMake = document.createElement("div");
     gridMake.classList.add("squaregrid");
@@ -15,7 +15,7 @@ function createSquare() {       //Creates a single square
     mainBody.appendChild(gridMake);
 }
 
-function createGrid() {         //Creates a grid with multiple calls of createSquare() according to input from user
+function createGrid() {        
     gridCount = 0;
     while (gridCount < (gridSize*gridSize)) {
         createSquare();
@@ -23,20 +23,21 @@ function createGrid() {         //Creates a grid with multiple calls of createSq
     }
 }
 
-function colorChange() {        //Initiates color change through class addition on hover
+function colorChange() {        
     const selectSquare = document.querySelectorAll(".squaregrid");
     selectSquare.forEach(square => square.addEventListener("mouseover", event => {
-        square.classList.add("hoverChange");
-        let squareOpacity = Number(square.style.opacity);
-        if (square.style.opacity < 0.1) {
-            square.style.opacity = 0.1;
-        } else if (square.style.opacity >= 0.1) {
-            square.style.opacity = squareOpacity + 0.1;
+        square.classList.add('hover-change');
+        const style = getComputedStyle(square);
+        let styleDeep = style.backgroundColor;
+        rgbaValue = Number(styleDeep.match(/\d.\d/));
+        if (rgbaValue < 0.9) {
+            square.style.backgroundColor = `rgba(0,0,0, ${rgbaValue + 0.1})`;
         }
-}))
+        }))
 }
 
 function clearGrid() {
-    const squareReset = document.querySelectorAll(".hoverChange");
-    squareReset.forEach(square => square.classList.remove("hoverChange"));
+    const squareReset = document.querySelectorAll(".squaregrid");
+    squareReset.forEach(square => square.style.backgroundColor = "");
+    squareReset.forEach(square => square.classList.remove("hover-change"));
 }
