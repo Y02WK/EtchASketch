@@ -1,8 +1,9 @@
 .squaregrid {
     box-sizing: border-box;
     display: inline-block;
-    border: 0.05px solid black;
+    border: 0.05px solid silver;
     margin:0;
+    /*background-color: rgba(0, 0, 0, 0);*/
 }
 
 html, body {
@@ -22,7 +23,7 @@ html, body {
 }
 
 .hover-change {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 button {

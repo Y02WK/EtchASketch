@@ -27,13 +27,13 @@ function colorChange() {
     const selectSquare = document.querySelectorAll(".squaregrid");
     selectSquare.forEach(square => square.addEventListener("mouseover", event => {
         square.classList.add('hover-change');
-        const style = getComputedStyle(square);
-        let styleDeep = style.backgroundColor;
-        rgbaValue = Number(styleDeep.match(/\d.\d/));
-        if (rgbaValue < 0.9) {
-            square.style.backgroundColor = `rgba(0,0,0, ${rgbaValue + 0.1})`;
+        let squareBackground = getComputedStyle(square).backgroundColor;
+        let regex = /\d\.\d/;
+        if (squareBackground.match(regex) != null) {
+            let squareOpacity  = Number(squareBackground.match(regex))
+            square.style.backgroundColor = squareBackground.replace(regex, squareOpacity + 0.1);
         }
-        }))
+    }))
 }
 
 function clearGrid() {
